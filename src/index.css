@@ -1,0 +1,27 @@
+@import "./visuals/fonts/fonts.css";
+
+:root {
+    --ink: #02020B;
+    --color1: #e6aa68;
+    --color2: #ece4b7;
+    --color3: #7fb069;
+    --color4: #d36135;
+}
+
+* {
+    font-family: "main-font";
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
