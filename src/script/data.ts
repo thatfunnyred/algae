@@ -5,7 +5,7 @@ function generateRandomArray(length: number) {
         randomArray.push(i);
     }
 
-    for(let i = 0; i < length; i++) {
+    for(let i = 0; i < length * 2; i++) {
         const index1 = Math.floor(Math.random() * length);
         const index2 = Math.floor(Math.random() * length);
 
