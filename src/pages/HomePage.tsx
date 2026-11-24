@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "../styles/home-styles.css"
+import { generateRandomArray } from "../script/data";
 
 export default function HomePage() {
-    const [UNSORTED_ARRAY, SET_UNSORTED_ARRAY] = useState<number[]>([1, 5, 2, 4, 8, 3, 6, 9, 7]);
+    const lengthRef = useRef<HTMLInputElement>(null);
     const [STEP, SET_STEP] = useState<number>(0);
+
+    const length = parseInt(lengthRef.current?.value ?? "");
+    const [UNSORTED_ARRAY, SET_UNSORTED_ARRAY] = useState<number[]>(generateRandomArray(length));
 
     const handleNextStep = () => {
         const POINTER = document.getElementById("current-pointer");
@@ -35,6 +39,12 @@ export default function HomePage() {
         
         SET_STEP(STEP + 1);
     }
+
+    const handleShuffle = () => {
+        const length = parseInt(lengthRef.current?.value ?? "");
+        const randomArray = generateRandomArray(length);
+        SET_UNSORTED_ARRAY(randomArray);
+    }
     
 
     return (
@@ -57,8 +67,14 @@ export default function HomePage() {
                     <button id="prev-step-btn">{"<"}</button>
                     <button id="next-step-btn" onClick={handleNextStep}>{">"}</button>
                 </div>
+                
+                <div>
+                    <input ref={lengthRef} id="data-length" type="range" name="speed" min="0" max="100" step="1" onChange={handleShuffle} />
+                    <button id="shuffle-btn" onClick={handleShuffle}>
+                        <svg fill="#000000" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M7.94.56a8.05 8.05 0 0 1 6.82 3.64V1.55H16V5a1.16 1.16 0 0 1-1.15 1.15h-3.44V4.9h2.32a6.79 6.79 0 0 0-5.79-3.1A6.48 6.48 0 0 0 1.24 8a6.48 6.48 0 0 0 6.7 6.2 6.48 6.48 0 0 0 6.7-6.2h1.24a7.71 7.71 0 0 1-7.94 7.44A7.71 7.71 0 0 1 0 8 7.71 7.71 0 0 1 7.94.56z"/></svg>
+                    </button>
+                </div>
 
-                <input id="speed" type="range" name="speed" min="0" max="100" step="1" />
             </div>
         </div>
     );

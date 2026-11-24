@@ -5,8 +5,8 @@
     position: relative;
 
     display: flex;
-    gap: 6px;
     align-items: end;
+    justify-content: space-between;
 
     padding: 0 18px;
 
@@ -60,6 +60,21 @@
     filter: url(#crayon);
 }
 
+#controls div {
+    display: flex;
+    align-items: center;
+
+    flex: 1;
+}
+
+#controls div:nth-child(2) {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    flex: 1;
+}
+
 #init-btn {
     width: 80px;
     height: 40px;
@@ -100,9 +115,72 @@
     box-shadow: 0px 6px 0px var(--ink);
 }
 
-#init-btn:active, #prev-step-btn:active, #next-step-btn:active {
+#shuffle-btn {
+    width: 40px;
+    height: 40px;
+
+    font-size: 24px;
+    font-weight: 500;
+    margin-right: 8px;
+    
+    background-color: var(--color4);
+    border: 4px dashed var(--ink);
+    box-shadow: 0px 6px 0px var(--ink);
+}
+
+#shuffle-btn svg {
+    transform: scale(0.8);
+}
+
+#init-btn:active, #prev-step-btn:active, #next-step-btn:active, #shuffle-btn:active {
     border: 4px dotted var(--ink);
 
     transform: translateY(6px);
     box-shadow: none;
+}
+
+#data-length {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  width: 160px;
+  cursor: pointer;
+
+  justify-self: flex-end;
+}
+
+#data-length::-webkit-slider-runnable-track {
+  background: #d3d3d3;
+  height: 40px;
+  border: 4px dashed var(--ink);
+  box-shadow: 0px 6px 0px var(--ink);
+}
+
+#data-length::-moz-range-track {
+  background: #d3d3d3;
+  height: 40px;
+  border: 4px dashed var(--ink);
+  box-shadow: 0px 6px 0px var(--ink);
+}
+
+#data-length::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: black;
+  height: 40px;
+  width: 20px;
+  border: none;
+  border-radius: 0;
+  margin-top: 0;
+  cursor: grab;
+}
+
+#data-length::-moz-range-thumb {
+  appearance: none;
+  background: black;
+  height: 40px;
+  width: 20px;
+  border: none;
+  border-radius: 0;
+  cursor: grab;
 }
