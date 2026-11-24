@@ -1,32 +1,67 @@
-# React + TypeScript + Vite
+# Algae
+It is a small website that I made to visualise algorithms as they take steps, and each step to be evaluated and explained. it is made in a cartoonish and crayon style, to impose teenagers to try and learn new algorithms while having fun.
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Features
+- Algorithm Visualization
+- Playback controls
+- Custom Inputs
 
-Currently, two official plugins are available:
+## Algorithms
+*Includes many algorithms to play around with.*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+    ### Sorting Algorithms
+    - [x] Bubble Sort
+    - [ ] Merge Sort
+    - [ ] Quick Sort
 
-## React Compiler
+    ### Pathfinding Algorithms
+    - Coming soon
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
+- React
+- Typescript
+- Css
+- Vite
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Structure
+```
+algae/
+│
+├── public/
+│
+├── src/
+│   │
+│   ├── components/         
+│   │
+│   ├── pages/
+│   │   └── HomePage.tsx    # Main application page
+│   │
+│   ├── script/
+│   │   ├── algorithms.ts  # Algorithm implementations
+│   │   └── data.ts        # Data and random array generation
+│   │
+│   ├── styles/
+│   │   └── home-styles.css  # Styling for the main page
+│   │
+│   ├── App.tsx
+│   └── main.tsx
+│
+├── index.html
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Installation
+
+```bash
+git clone https://github.com/thatfunnyred/algae.git
+cd algae
+npm install
+npm run dev
+```
+
+## License
+This project is licensed under the Apache License 2.0.
+You are free to use, modify, and distribute this project under the terms and conditions of the license.
